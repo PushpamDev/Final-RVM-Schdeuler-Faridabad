@@ -3,9 +3,6 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config({ path: './backend/.env' });
 
-const studentsRouter = require('./routes/students');
-const availabilityRouter = require('./routes/availability');
-const freeSlotsRouter = require('./routes/freeSlots');
 const activityRouter = require('./routes/activity');
 
 const app = express();
@@ -16,13 +13,48 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/skills', require('./routes/skills'));
-app.use('/api/faculty', require('./routes/faculty'));
-app.use('/api/batches', require('./routes/batches'));
-app.use('/api/availability', require('./routes/availability'));
-app.use('/api/students', require('./routes/students'));
-app.use('/api/free-slots', require('./routes/freeSlots'));
-app.use('/api/activities', activityRouter);
+try {
+  app.use('/api/skills', require('./routes/skills'));
+} catch (e) {
+  console.error('Error loading skills route', e);
+  throw e;
+}
+try {
+  app.use('/api/faculty', require('./routes/faculty'));
+} catch (e) {
+  console.error('Error loading faculty route', e);
+  throw e;
+}
+try {
+  app.use('/api/batches', require('./routes/batches'));
+} catch (e) {
+  console.error('Error loading batches route', e);
+  throw e;
+}
+try {
+  app.use('/api/availability', require('./routes/availability'));
+} catch (e) {
+  console.error('Error loading availability route', e);
+  throw e;
+}
+try {
+  app.use('/api/students', require('./routes/students'));
+} catch (e) {
+  console.error('Error loading students route', e);
+  throw e;
+}
+try {
+  app.use('/api/free-slots', require('./routes/freeSlots'));
+} catch (e) {
+  console.error('Error loading free-slots route', e);
+  throw e;
+}
+try {
+  app.use('/api/activities', activityRouter);
+} catch (e) {
+  console.error('Error loading activities route', e);
+  throw e;
+}
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
