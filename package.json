@@ -11,7 +11,7 @@
     "dev:backend": "nodemon backend/server.js",
     "dev:client": "vite",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build",
+    "build:client": "./node_modules/.bin/vite build",
     "build:server": "vite build --config vite.config.server.ts",
     "test": "vitest --run",
     "format:fix": "prettier --write .",
