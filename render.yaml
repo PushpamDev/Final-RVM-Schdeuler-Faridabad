@@ -4,12 +4,11 @@ services:
     env: node
     plan: free
     buildCommand: npm install && npm run build
-    envVars:
-      - key: NPM_CONFIG_PRODUCTION
-        value: false
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
+      - key: NPM_CONFIG_PRODUCTION
+        value: false
       - key: NODE_ENV
         value: production
       - fromGroup: supabase
