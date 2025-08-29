@@ -1,8 +1,19 @@
 import { defineConfig } from "vite";
 import path from "path";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 // Server build configuration
 export default defineConfig({
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: "backend/routes",
+          dest: ".",
+        },
+      ],
+    }),
+  ],
   build: {
     lib: {
       entry: path.resolve(__dirname, "backend/server.js"),
