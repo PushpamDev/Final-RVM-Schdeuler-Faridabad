@@ -8,7 +8,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, "backend/server.js"),
       name: "server",
       fileName: "production",
-      formats: ["es"],
+      formats: ["cjs"],
     },
     outDir: "dist/backend",
     target: "node22",
@@ -34,8 +34,8 @@ export default defineConfig({
         "cors",
       ],
       output: {
-        format: "es",
-        entryFileNames: "[name].mjs",
+        format: "cjs",
+        entryFileNames: "[name].js",
       },
     },
     minify: false, // Keep readable for debugging
