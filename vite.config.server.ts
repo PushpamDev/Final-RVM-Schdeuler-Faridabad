@@ -40,6 +40,12 @@ export default defineConfig({
     },
     minify: false, // Keep readable for debugging
     sourcemap: true,
+    copy: [
+      {
+        src: "backend/routes",
+        dest: "dist/backend",
+      },
+    ],
   },
   resolve: {
     alias: {
