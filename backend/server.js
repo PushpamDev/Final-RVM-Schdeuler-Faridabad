@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config({ path: './backend/.env' });
 
 const studentsRouter = require('./routes/students');
@@ -22,6 +23,14 @@ app.use('/api/availability', require('./routes/availability'));
 app.use('/api/students', require('./routes/students'));
 app.use('/api/free-slots', require('./routes/freeSlots'));
 app.use('/api/activities', activityRouter);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
+}
 
 app.get('/api/health', (req, res) => {
   res.status(200).send('OK');
