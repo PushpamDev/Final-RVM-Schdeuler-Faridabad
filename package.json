@@ -4,7 +4,7 @@
   "description": "A monorepo for the RVM Scheduler Faridabad application.",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "npm run build && node backend/server.js",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:client\"",
     "dev:backend": "nodemon backend/server.js",
     "dev:client": "vite",

@@ -1,14 +1,12 @@
 services:
   - type: web
-    name: my-app
+    name: final-rvm-schedulerfaridabad
     env: node
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
-      - key: NPM_CONFIG_PRODUCTION
-        value: false
       - key: NODE_ENV
         value: production
       - fromGroup: supabase

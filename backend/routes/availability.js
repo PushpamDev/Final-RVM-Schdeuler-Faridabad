@@ -5,7 +5,7 @@ const {
   setFacultyAvailability,
 } = require("../controllers/availabilityController");
 
-router.get("/faculty/:facultyId", getFacultyAvailability);
+// router.get("/faculty/:facultyId", getFacultyAvailability);
 router.post("/", setFacultyAvailability);
 
 module.exports = router;

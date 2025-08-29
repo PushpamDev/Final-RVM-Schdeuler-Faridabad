@@ -12,53 +12,19 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Routes
-try {
-  app.use('/api/skills', require('./routes/skills'));
-} catch (e) {
-  console.error('Error loading skills route', e);
-  throw e;
-}
-try {
-  app.use('/api/faculty', require('./routes/faculty'));
-} catch (e) {
-  console.error('Error loading faculty route', e);
-  throw e;
-}
-try {
-  app.use('/api/batches', require('./routes/batches'));
-} catch (e) {
-  console.error('Error loading batches route', e);
-  throw e;
-}
-try {
-  app.use('/api/availability', require('./routes/availability'));
-} catch (e) {
-  console.error('Error loading availability route', e);
-  throw e;
-}
-try {
-  app.use('/api/students', require('./routes/students'));
-} catch (e) {
-  console.error('Error loading students route', e);
-  throw e;
-}
-try {
-  app.use('/api/free-slots', require('./routes/freeSlots'));
-} catch (e) {
-  console.error('Error loading free-slots route', e);
-  throw e;
-}
-try {
-  app.use('/api/activities', activityRouter);
-} catch (e) {
-  console.error('Error loading activities route', e);
-  throw e;
-}
+app.use('/api/skills', require('./routes/skills'));
+app.use('/api/faculty', require('./routes/faculty'));
+app.use('/api/batches', require('./routes/batches'));
+app.use('/api/availability', require('./routes/availability'));
+app.use('/api/students', require('./routes/students'));
+app.use('/api/free-slots', require('./routes/freeSlots'));
+app.use('/api/activities', activityRouter);
 
 if (process.env.NODE_ENV === 'production') {
+  // Serve the static files from the built frontend
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
+  // For any other request, send the frontend's index.html file
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
