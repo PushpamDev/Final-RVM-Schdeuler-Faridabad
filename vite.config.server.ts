@@ -14,25 +14,6 @@ export default defineConfig({
     target: "node22",
     ssr: true,
     rollupOptions: {
-      external: [
-        // Node.js built-ins
-        "fs",
-        "path",
-        "url",
-        "http",
-        "https",
-        "os",
-        "crypto",
-        "stream",
-        "util",
-        "events",
-        "buffer",
-        "querystring",
-        "child_process",
-        // External dependencies that should not be bundled
-        "express",
-        "cors",
-      ],
       output: {
         format: "cjs",
         entryFileNames: "[name].js",
@@ -40,12 +21,6 @@ export default defineConfig({
     },
     minify: false, // Keep readable for debugging
     sourcemap: true,
-    copy: [
-      {
-        src: "backend/routes",
-        dest: "dist/backend",
-      },
-    ],
   },
   resolve: {
     alias: {
