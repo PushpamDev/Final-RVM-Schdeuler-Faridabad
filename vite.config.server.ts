@@ -11,6 +11,10 @@ export default defineConfig({
           src: "backend/routes",
           dest: ".",
         },
+        {
+          src: "backend/controllers",
+          dest: ".",
+        },
       ],
     }),
   ],
