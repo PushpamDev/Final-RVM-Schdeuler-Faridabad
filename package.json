@@ -79,7 +79,8 @@
     "three": "^0.176.0",
     "vaul": "^1.1.2",
     "zod": "^3.25.76",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "@vitejs/plugin-react-swc": "^4.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -88,7 +89,6 @@
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.176.0",
-    "@vitejs/plugin-react-swc": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.4",
