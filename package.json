@@ -83,7 +83,8 @@
     "@vitejs/plugin-react-swc": "^4.0.0",
     "tailwindcss": "^3.4.17",
     "postcss": "^8.5.6",
-    "autoprefixer": "^10.4.21"
+    "autoprefixer": "^10.4.21",
+    "vite-plugin-static-copy": "^3.1.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -96,7 +97,6 @@
     "nodemon": "^3.1.4",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
-    "vite-plugin-static-copy": "^3.1.2",
     "vitest": "^3.2.4"
   }
 }
