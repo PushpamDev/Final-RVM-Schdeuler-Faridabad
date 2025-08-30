@@ -1,7 +1,16 @@
+# Exported from Render on 2025-08-30T01:19:31Z
 services:
-  - type: web
-    name: final-rvm-schedulerfaridabad
-    env: node
-    plan: free
-    buildCommand: "npm install && npm run build"
-    startCommand: "npm start"
+- type: web
+  name: final-rvm-schedulerfaridabad
+  runtime: node
+  repo: https://github.com/PushpamDev/Final-RVM-Schdeuler-Faridabad
+  plan: free
+  envVars:
+  - key: NODE_ENV
+    sync: false
+  - fromGroup: supabase
+  region: oregon
+  buildCommand: npm install && npm run build
+  startCommand: npm start
+  autoDeployTrigger: commit
+version: "1"
