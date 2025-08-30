@@ -1,4 +1,4 @@
-const supabase = require("../supabaseClient.js");
+const supabase = require("../db.js");
 const { logActivity } = require("./logActivity");
 
 const getAllFaculty = async (req, res) => {

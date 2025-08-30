@@ -1,4 +1,4 @@
-const supabase = require('../supabaseClient.js');
+const supabase = require('../db.js');
 
 async function logActivity(action, item, user) {
   try {
