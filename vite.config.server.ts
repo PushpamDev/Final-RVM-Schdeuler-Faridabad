@@ -15,6 +15,14 @@ export default defineConfig({
           src: "backend/controllers",
           dest: ".",
         },
+        {
+          src: "backend/utils",
+          dest: ".",
+        },
+        {
+          src: "backend/db.js",
+          dest: ".",
+        },
       ],
     }),
   ],
