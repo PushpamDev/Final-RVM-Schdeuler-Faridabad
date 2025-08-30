@@ -3,10 +3,5 @@ services:
     name: final-rvm-schedulerfaridabad
     env: node
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
-    healthCheckPath: /api/health
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - fromGroup: supabase
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
