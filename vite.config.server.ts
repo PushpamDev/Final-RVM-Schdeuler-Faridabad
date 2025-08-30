@@ -16,10 +16,6 @@ export default defineConfig({
           dest: ".",
         },
         {
-          src: "backend/utils",
-          dest: ".",
-        },
-        {
           src: "backend/db.js",
           dest: ".",
         },
