@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config({ path: './backend/.env' });
+
 
 const activityRouter = require('./routes/activity');
 
@@ -22,11 +22,11 @@ app.use('/api/activities', activityRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve the static files from the built frontend
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+  app.use(express.static(path.join(__dirname, '../spa')));
 
   // For any other request, send the frontend's index.html file
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+    res.sendFile(path.join(__dirname, '../spa/index.html'));
   });
 }
 
